@@ -1,18 +1,29 @@
-﻿// functions
-let add a b = a + b
+﻿//* Base functions
+let addTwo x = x + 2
+let multiplyByFive x = x * 5
 
-// function that returns a value
-let addAndMultiply a b c =
-    let sum = add a b
-    sum * c // return value
+
+//-> Normal way
+let addAndMultiply x =
+    let total = addTwo x
+    let result = multiplyByFive total
+    result
     
 
-// function with defined return type and parameter types
-let convert (param: string) : int =
-    int param
+//-> Composition way
+//composition is a way to combine two functions into one
+let addAndMultiplyCompose = addTwo >> multiplyByFive
+
+
+//-> Canalization way
+//canalization is a way to call a function and pass the result to another function
+let addAndMultiplyCanalization x =
+    x
+    |> addTwo
+    |> multiplyByFive
     
-    
-// calling functions
-printfn $"Sum function: {add 1 2}"
-printfn $"Add and multiply function: {addAndMultiply 1 2 3}"
-printfn "Convert function: %d" (convert "123")
+// also can be written as
+// x |> addTwo |> multiplyByFive
+   
+
+
