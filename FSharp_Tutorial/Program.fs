@@ -1,10 +1,14 @@
-﻿// Sum program
+﻿// Simple if-else statement
+let age = 22
 
-open System
+if age >= 18
+then printf "You can vote!"
+else printf "You can't vote!"
 
-printfn "Enter two numbers to sum"
-let x = Console.ReadLine()
-let y = Console.ReadLine()
-let sum = (int x) + (int y) // This is another way to cast
 
-printfn "The sum is %d" sum
+// If-else as an expression
+let canVote = if age >= 18 then true else false
+
+if canVote
+then printf "You can vote!"
+else printf "You can't vote!"
