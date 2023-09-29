@@ -1,14 +1,25 @@
-﻿// Untyped variables
+﻿// Printing in console
 
-open Microsoft.FSharp.Quotations
-
-let name = "Ariadne"
-let age = 22
-
-// Typed variables
-let typed: string = "Hello world"
+// F# style
+printf "Hello from printf\n"
+printfn "Hello from printfn"
 
 
-// Mutable variables (real variables)
-let mutable year: int = 2022
-year <- 2023
+// .NET Style
+open System
+Console.WriteLine("Hello from Console.WriteLine")
+    
+
+// Printing vars
+let name: string = "Ariadne"
+let age: int = 22
+
+
+// String interpolation
+printfn $"Hello my name is {name}, I'm {age} years old"
+
+// String specifiers
+//  %s -> string
+//  %d | %i -> int
+//  %b -> bool
+printfn "Hello my name is %s, I'm %i years old" name age
