@@ -1,25 +1,15 @@
-﻿// Printing in console
+﻿open System
 
-// F# style
-printf "Hello from printf\n"
-printfn "Hello from printfn"
-
-
-// .NET Style
-open System
-Console.WriteLine("Hello from Console.WriteLine")
-    
-
-// Printing vars
-let name: string = "Ariadne"
-let age: int = 22
+// Reading a line from the console
+let name: string = Console.ReadLine()
 
 
-// String interpolation
-printfn $"Hello my name is {name}, I'm {age} years old"
+// Parsing a string to an int
+let age: string = Console.ReadLine()
+let intAge: int = Int32.Parse age
 
-// String specifiers
-//  %s -> string
-//  %d | %i -> int
-//  %b -> bool
-printfn "Hello my name is %s, I'm %i years old" name age
+
+// Operators
+let aux = 10
+let isEven = aux % 2 = 0
+printfn $"Divisible by two {isEven}"
