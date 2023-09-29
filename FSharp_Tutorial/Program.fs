@@ -1,15 +1,10 @@
-﻿open System
+﻿// Sum program
 
-// Reading a line from the console
-let name: string = Console.ReadLine()
+open System
 
+printfn "Enter two numbers to sum"
+let x = Console.ReadLine()
+let y = Console.ReadLine()
+let sum = (int x) + (int y) // This is another way to cast
 
-// Parsing a string to an int
-let age: string = Console.ReadLine()
-let intAge: int = Int32.Parse age
-
-
-// Operators
-let aux = 10
-let isEven = aux % 2 = 0
-printfn $"Divisible by two {isEven}"
+printfn "The sum is %d" sum
