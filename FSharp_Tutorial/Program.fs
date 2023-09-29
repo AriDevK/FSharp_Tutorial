@@ -1,40 +1,60 @@
-﻿// Create a list in line
-let numbersInLine = [1;2;3;4;5]
+﻿// List functions
+let cards = [1..10]
 
-// Create a list with multiple lines
-let numbersBlock = [
-    1
-    2
-    3
-    4
-    5
-]
-
-//** Is not possible to mix types in a list
-
-// Create a list with .. operator
-let numbersRange = [1..5] // 1,2,3,4,5
+// Iter function
+// this functions iterates over the list and applies the function to each element
+// equals to do -> for i in cards do printfn "%d" i
+List.iter(fun x -> printfn "%d" x) cards // print each element
 
 
-// ------------------------------------------
-
-// Adding elements to a list
-// List are inmutable, so we need to create a new list with the new elements
-
-// 6,1,2,3,4,5  (Add at the beginning) [::] operator
-let newNumbers = 6 :: numbersInLine
+// Map function
+// this function iterates over the list and applies the function to each element
+// and returns a new list with the results
+let cards2 = List.map(fun x -> x * 2) cards // multiply each element by 2
+printfn "%A" cards2
 
 
-// Adding a list to a list (Concatenation) [@] operator
-// 1,2,3,4,5,6,7,8,9
-let newNumbers2 = numbersInLine @ [6;7;8;9]
+// Filter function
+// this function iterates over the list and applies the function to each element
+// and returns a new list with the elements that match the condition
+let cards3 = List.filter(fun x -> x % 2 = 0) cards // filter even numbers
 
 
-// ------------------------------------------
+// Sort function
+// this function iterates over the list and applies the function to each element
+// and returns a new list with the elements that match the condition
+let cards4 = List.sort cards
 
-// List properties
-newNumbers2.Head // First element of the list (1)
-newNumbers2.Tail // List without the first element (2,3,4,5,6,7,8,9)
-newNumbers2.Length // Length of the list (9)
-newNumbers2.IsEmpty // Check if the list is empty (false)
-newNumbers2.Item 2 // Get the element in the position 2 (3)
+//  sort by function
+let cards5 = List.sortBy(fun x -> x % 2) cards // sort by even and odd numbers
+
+
+//  sort with function
+let cards6 = List.sortWith(fun x y -> x - y) cards // sort by even and odd numbers
+
+
+
+
+// Find function
+// this function iterates over the list and applies the function to each element
+// and returns the first element that match the condition
+let card = List.find(fun x -> x % 2 = 0) cards // find the first even number
+
+//  TryFind function
+// this function iterates over the list and applies the function to each element
+// and returns the first element that match the condition
+let card2 = List.tryFind(fun x -> x % 2 = 0) cards // find the first even number
+
+
+// And also some math and .NET functions in list
+let sum = List.sum cards
+let max = List.max cards
+let min = List.min cards
+let length = List.length cards
+let exists = List.exists(fun x -> x % 2 = 0) cards // check if exists an even number
+let forAll = List.forall(fun x -> x % 2 = 0) cards // check if all elements are even numbers
+let contains = List.contains 5 cards // check if the list contains the element 5
+let distinct = List.distinct cards // remove duplicates
+let append = List.append cards cards2 // append two lists
+let concat = List.concat [cards; cards2] // concat two lists
+let rev = List.rev cards // reverse the list
